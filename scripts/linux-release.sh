@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+find .
+
 if [[ "$CIRRUS_RELEASE" == "" ]]; then
   echo "Not a release. No need to deploy!"
   exit 0
