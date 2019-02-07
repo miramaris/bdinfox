@@ -1,5 +1,5 @@
 linux_task:
-  only_if: $CIRRUS_RELEASE != ''
+  # only_if: $CIRRUS_RELEASE != ''
   container:
     image: microsoft/dotnet:2.2-sdk
   environment:
