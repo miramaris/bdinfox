@@ -4,6 +4,9 @@ linux_task:
     image: microsoft/dotnet:2.2-sdk
   environment:
     GITHUB_TOKEN: ENCRYPTED[258a73daeb2437816b12d22b9d09bdddccd411608e5e7688bad8a6c607bdc5329526e0607c5deb609dcda74ba5f9af52]
-  populate_script: dotnet restore
-  build_script: dotnet build -r linux-x64 -c release
+  populate_script:
+    - apt-get update
+    - apt-get install -y clang-3.9 libcurl4-openssl-dev zlib1g-dev libkrb5-dev
+    - dotnet restore
+  build_script: dotnet publish -r linux-x64 -c release
   publish_script: ./scripts/linux-release.sh

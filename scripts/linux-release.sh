@@ -14,13 +14,13 @@ fi
 
 file_content_type="application/octet-stream"
 files_to_upload=(
-  "./bin/release/netcoreapp2.2/linux-x64/BDInfo"
+  "./bin/release/netcoreapp2.2/linux-x64/native/BDInfo"
 )
 
 for fpath in $files_to_upload
 do
   echo "Uploading $fpath..."
-  name=$(basename "$fpath")
+  name="bdinfox-linux"
   url_to_upload="https://uploads.github.com/repos/$CIRRUS_REPO_FULL_NAME/releases/$CIRRUS_RELEASE/assets?name=$name"
   curl -X POST \
     --data-binary @$fpath \
