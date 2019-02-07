@@ -14,7 +14,7 @@ fi
 
 file_content_type="application/octet-stream"
 files_to_upload=(
-  "bin/release/netcoreapp2.2/linux-x64/native/BDInfo"
+  "./bin/release/netcoreapp2.2/linux-x64/BDInfo"
 )
 
 for fpath in $files_to_upload
