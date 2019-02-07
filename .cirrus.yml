@@ -10,3 +10,9 @@ linux_task:
     - dotnet restore
   build_script: dotnet publish -r linux-x64 -c release
   publish_script: ./scripts/linux-release.sh
+
+windows_task:
+  container:
+    image: microsoft/dotnet:2.2-sdk
+  populate_script: dotnet restore
+  build_script: dotnet publish -r win-x64 -c release
