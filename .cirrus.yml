@@ -13,6 +13,8 @@ linux_task:
 
 windows_task:
   windows_container:
-    image: microsoft/dotnet:2.2-sdk
-  populate_script: dotnet restore
+    dockerfile: .ci/windows/Dockerfile
+    os: 1809
+  populate_script:
+    - dotnet restore
   build_script: dotnet publish -r win-x64 -c release
