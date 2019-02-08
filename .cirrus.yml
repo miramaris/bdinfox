@@ -14,7 +14,7 @@ linux_task:
 windows_task:
   windows_container:
     dockerfile: .ci/windows/Dockerfile
-    os_version: 1809
+    os_version: 2019
   populate_script:
     - dotnet restore
   build_script: dotnet publish -r win-x64 -c release
