@@ -17,3 +17,4 @@ windows_task:
     os_version: 2019
   populate_script: dotnet restore
   build_script: .\scripts\windows-build.bat
+  publish_script: .\scripts\windows-publish.bat

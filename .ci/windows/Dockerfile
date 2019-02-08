@@ -9,6 +9,12 @@ RUN Invoke-WebRequest -UseBasicParsing https://download.visualstudio.microsoft.c
     Remove-Item -Force vs_buildtools.exe; `
     Remove-Item -Force -Recurse \"${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\"; `
     Remove-Item -Force -Recurse ${Env:TEMP}\*
+
+RUN powershell.exe -NoLogo -NoExit -Command " `
+    iwr -UseBasicParsing 'https://get.scoop.sh' | iex; `
+    scoop install hub; `
+    scoop cache rm *; `
+    "
    
 # Restore the default Windows shell for correct batch processing below.
 SHELL ["cmd", "/S", "/C"]

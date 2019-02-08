@@ -1,0 +1,1 @@
+hub release edit -m "" --attach .\bin\release\netcoreapp2.1\win-x64\native\BDInfo.exe %CIRRUS_RELEASE%
