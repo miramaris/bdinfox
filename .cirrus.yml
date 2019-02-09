@@ -26,5 +26,5 @@ macos_task:
     - brew update
     - brew tap caskroom/cask
     - brew cask install dotnet-sdk
-    - dotnet restore
+    - PATH=/usr/local/share/dotnet:$PATH dotnet restore
   build_script: dotnet publish -r osx-x64 -c release
