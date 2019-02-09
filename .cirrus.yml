@@ -18,3 +18,11 @@ windows_task:
   populate_script: dotnet restore
   build_script: .\scripts\windows-build.bat
   publish_script: .\scripts\windows-publish.bat
+
+macos_task:
+  osx_instance:
+    image: mojave-base
+  populate_script:
+    - brew install dotnet
+    - dotnet restore
+  build_script: dotnet publish -r osx-x64 -c release
