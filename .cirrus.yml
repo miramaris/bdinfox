@@ -28,5 +28,6 @@ macos_task:
     - brew cask install dotnet-sdk
     - brew install hub
     - PATH=/usr/local/share/dotnet:$PATH dotnet restore
+    - ls /Applications
   build_script: PATH=/usr/local/share/dotnet:$PATH dotnet publish -r osx-x64 -c release
   publish_script: ./scripts/macOS-release.sh
