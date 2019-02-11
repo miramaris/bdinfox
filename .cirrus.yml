@@ -12,6 +12,8 @@ windows_task:
   windows_container:
     dockerfile: .ci/windows/Dockerfile
     os_version: 2019
+  environment:
+    GITHUB_TOKEN: ENCRYPTED[258a73daeb2437816b12d22b9d09bdddccd411608e5e7688bad8a6c607bdc5329526e0607c5deb609dcda74ba5f9af52]
   populate_script: dotnet restore
   build_script: .\scripts\windows-build.bat
   publish_script: .\scripts\windows-publish.bat
@@ -19,6 +21,8 @@ windows_task:
 macos_task:
   osx_instance:
     image: mojave-base
+  environment:
+    GITHUB_TOKEN: ENCRYPTED[258a73daeb2437816b12d22b9d09bdddccd411608e5e7688bad8a6c607bdc5329526e0607c5deb609dcda74ba5f9af52]
   populate_script:
     - brew update
     - brew tap caskroom/cask
