@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-find .
-
 if [[ "$CIRRUS_RELEASE" == "" ]]; then
   echo "Not a release. No need to deploy!"
   exit 0
@@ -14,7 +12,7 @@ fi
 
 file_content_type="application/octet-stream"
 files_to_upload=(
-  "./bin/release/netcoreapp2.2/linux-x64/native/BDInfo"
+  "./bin/release/netcoreapp2.1/linux-x64/native/BDInfo"
 )
 
 for fpath in $files_to_upload
