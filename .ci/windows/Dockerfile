@@ -10,7 +10,7 @@ RUN Invoke-WebRequest -UseBasicParsing https://download.visualstudio.microsoft.c
     Remove-Item -Force -Recurse \"${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\"; `
     Remove-Item -Force -Recurse ${Env:TEMP}\*; `
     iex (new-object net.webclient).downloadstring('https://get.scoop.sh'); `
-    scoop install hub; `
+    scoop install curl; `
     scoop cache rm *;
    
 # Restore the default Windows shell for correct batch processing below.
