@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-find .
-
 if [[ "$CIRRUS_RELEASE" == "" ]]; then
   echo "Not a release. No need to deploy!"
   exit 0
@@ -12,4 +10,19 @@ if [[ "$GITHUB_TOKEN" == "" ]]; then
   exit 1
 fi
 
-hub release edit -m "" --attach ./bin/release/netcoreapp2.1/osx-x64/native/BDInfo#bdinfox-macOS $CIRRUS_RELEASE
+file_content_type="application/octet-stream"
+files_to_upload=(
+  "./bin/release/netcoreapp2.1/osx-x64/native/BDInfo"
+)
+
+for fpath in $files_to_upload
+do
+  echo "Uploading $fpath..."
+  name="bdinfox-macOS"
+  url_to_upload="https://uploads.github.com/repos/$CIRRUS_REPO_FULL_NAME/releases/$CIRRUS_RELEASE/assets?name=$name"
+  curl -X POST \
+    --data-binary @$fpath \
+    --header "Authorization: token $GITHUB_TOKEN" \
+    --header "Content-Type: $file_content_type" \
+    $url_to_upload
+done
